@@ -25,7 +25,7 @@ def gradienteDescendente(steps, weights, inputs):
     error = alvo - nn_output
     output_grad = sigmoid_prime(np.dot(inputs, np.squeeze(weights)))
     error_term = error * output_grad
-    weights = [learnrate * error_term * inputs]
+    weights += np.squeeze([learnrate * error_term * inputs])
   return weights
 
 inputs = np.array([0.7, -0.3])
